@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ The MIT License (MIT)
+  ~
+  ~ Copyright (c) 2014-2016 abel533@gmail.com
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dos.bsapp.dao.UnitDao">
+	<select id="aUnitList" resultType="com.dos.bsapp.model.Unit">
+	   select 
+	    id,
+        app_id as appId,
+        port_id as portId,
+        series_number as seriesNumber,
+        setting,
+      is_lock as isLock,
+        created
+		from bs_unit
+	</select>
+  
+  <select id="get" resultType="com.dos.bsapp.model.Unit">
+    select
+    id,
+    app_id as appId,
+    port_id as portId,
+    series_number as seriesNumber,
+    setting,
+    is_lock as isLock,
+    created
+    from bs_unit
+    where id = #{id}
+  </select>
+
+  <select id="findByAppIdAndPortId"  resultType="com.dos.bsapp.model.Unit">
+    select
+    id,
+    app_id as appId,
+    port_id as portId,
+    series_number as seriesNumber,
+    setting,
+    is_lock as isLock,
+    created
+    from bs_unit
+    where app_id = #{appId} and port_id = #{portId}
+  </select>
+
+
+  <update id="resetSeriesNumber">
+    update bs_unit set series_number = #{seriesNumber}
+    where id = #{id}
+  </update>
+
+
+  <insert id="addUnit" keyProperty="id" useGeneratedKeys="true" parameterType="com.dos.bsapp.model.Unit">
+    insert into bs_unit (app_id,port_id,setting,is_lock,created,series_number) values
+    (#{appId},#{portId},#{setting},#{isLock},NOW(),#{seriesNumber});
+
+    <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+      SELECT LAST_INSERT_ID();
+    </selectKey>
+  </insert>
+
+  <update id="editSetting">
+    update bs_unit set setting = #{setting}
+    where id = #{id}
+  </update>
+
+  <update id="editLockStatus">
+    update bs_unit set is_lock = #{isLock}
+    where id = #{id}
+  </update>
+</mapper>

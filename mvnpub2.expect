@@ -1,0 +1,6 @@
+#!/usr/bin/expect
+set timeout 30
+  spawn scp target/qqvisa.war root@101.200.172.38:/home/
+  expect "password:"
+  send "Lishuang2015\r"
+interact 

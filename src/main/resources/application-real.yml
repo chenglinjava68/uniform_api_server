@@ -1,0 +1,17 @@
+server:
+    port: 10000 
+    context-path: #/liuzh/
+
+logging:
+    level:
+        com.dos: WARN 
+        com.ibatis: WARN 
+
+  
+spring:
+    datasource:
+        name: sappdb 
+        url: jdbc:mysql://127.0.0.1:3306/s_app_db
+        username: sappuser  
+        password: kxicjn45 
+        driver-class-name: com.mysql.jdbc.Driver

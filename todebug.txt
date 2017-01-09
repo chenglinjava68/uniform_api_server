@@ -1,0 +1,98 @@
+
+PayIf created Paylink:<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/></head><body><form id = "pay_form" action="https://101.231.204.80:5000/gateway/api/frontTransReq.do" method="post"><input type="hidden" name="bizType" id="bizType" value="000201"/><input type="hidden" name="txnSubType" id="txnSubType" value="01"/><input type="hidden" name="orderId" id="orderId" value="1606298hix25161006b2rx"/><input type="hidden" name="backUrl" id="backUrl" value="http://beta.www.woigo.cn:10001//api/unionpay/backrecv_url"/><input type="hidden" name="signature" id="signature" value="geauVuJf4i0cMqNxiau0DtWRI0D81OYw5+WcGH31HCnucnN1Yqz/VbwDSfWecn5pxTU8OJTr5hRdIaRCKVoB4cRTIHpQYrmiosctWLQnVM06fFz24PduBNcHPOQY99IGGxgnUIVkAjjnlqaZC1ZBCNLW99ZQWsSRpn+94eHcDCE="/><input type="hidden" name="txnType" id="txnType" value="01"/><input type="hidden" name="channelType" id="channelType" value="07"/><input type="hidden" name="frontUrl" id="frontUrl" value="http://beta.www.woigo.cn:10001//api/unionpay/frontrecv_url"/><input type="hidden" name="certId" id="certId" value="40220995861346480087409489142384722381"/><input type="hidden" name="encoding" id="encoding" value="UTF-8"/><input type="hidden" name="version" id="version" value="5.0.0"/><input type="hidden" name="accessType" id="accessType" value="0"/><input type="hidden" name="txnTime" id="txnTime" value="20161007063541"/><input type="hidden" name="merId" id="merId" value="777290058138633"/><input type="hidden" name="currencyCode" id="currencyCode" value="156"/><input type="hidden" name="signMethod" id="signMethod" value="01"/><input type="hidden" name="txnAmt" id="txnAmt" value="1"/></form></body><script type="text/javascript">document.all.pay_form.submit();</script></html>
+unionpayBackRecvUrl is called with data:
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] ACP_SDK_LOG                              : BackRcvResponse接收后台通知开始
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : ============================== SDK REQ MSG BEGIN ==============================
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [bizType] = [000201]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [orderId] = [1606298hix25161006b2rx]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [txnSubType] = [01]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [signature] = [MrFl39aYu0bhoM6rO9zxI0UEEEqreUdlcWiTDU45REdsh3ELvjheeQz+Q9FAWBOj137eplQeqF6AN/Hw+zw03GoOn+WI4m0fB1GgSPipeQU3GCy6NVXxbi9twOdJam6BVF4igWP0aR3+5SAWDXrOQflcQzAm5Zau3WbAgf8B8T8krbcYFMIwR5W/wPHilDh+QNx0oLEQwdF3zy63X9yWbXUAD+C29klNPJ8i51xtmFUqkVI96yOTqobx7YgGdzRucMoXMsMjaY+eutlhVn8M6+Y0EGaTRw+2In3h2umNOw3m2p2+KfQFeJLFwvaUkQBRwlpntW5c3Hen/37hcTpZJQ==]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [traceNo] = [462497]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [accNo] = [6216***********0018]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [settleAmt] = [1]
+2016-10-07 06:36:29.950  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [settleCurrencyCode] = [156]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [settleDate] = [1006]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [txnType] = [01]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [certId] = [68759585097]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [encoding] = [UTF-8]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [version] = [5.0.0]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [queryId] = [201610070635414624978]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [accessType] = [0]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [respMsg] = [Success!]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [traceTime] = [1007063541]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [txnTime] = [20161007063541]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [merId] = [777290058138633]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [currencyCode] = [156]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [respCode] = [00]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [signMethod] = [01]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : [txnAmt] = [1]
+2016-10-07 06:36:29.951  INFO 5890 --- [io-10001-exec-5] SDK_MSG_LOG                              : ==============================  SDK REQ MSG END  ==============================
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4acc091] was not registered for synchronization because synchronization is not active
+JDBC Connection [ProxyConnection[PooledConnection[com.mysql.jdbc.JDBC4Connection@4efbe68c]]] will not be managed by Spring
+==>  Preparing: select id, app_id as appId, order_series_number as orderSeriesNumber, created, is_paid as isPaid, paid_port as paidPort, paid_time as paidTime, paid_info as paidInfo, reg_unit as regUnit, total_series_number as totalSeriesNumber, wechat_pay_link as wechatPayLink, order_name as orderName, total_price as totalPrice, show_url as showUrl, over_time as overTime, wechat_prepare_id as wechatPrepareId, wechat_prepare_id_create_time as wechatPrepareIdCreateTime, called_back as calledBack, called_back_time as calledBackTime from bs_app_pay where total_series_number=?;
+==> Parameters: 1606298hix25161006b2rx(String)
+<==    Columns: id, appId, orderSeriesNumber, created, isPaid, paidPort, paidTime, paidInfo, regUnit, totalSeriesNumber, wechatPayLink, orderName, totalPrice, showUrl, overTime, wechatPrepareId, wechatPrepareIdCreateTime, calledBack, calledBackTime
+<==        Row: 49, 1, 161006b2rx, 2016-10-06 04:55:53.0, 0, , null, <<BLOB>>, 6, 1606298hix25161006b2rx, null, null, 1, null, null, null, null, 0, null
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4acc091]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f7f92d] was not registered for synchronization because synchronization is not active
+JDBC Connection [ProxyConnection[PooledConnection[com.mysql.jdbc.JDBC4Connection@4efbe68c]]] will not be managed by Spring
+==>  Preparing: select id, app_id as appId, port_id as portId, setting, series_number as seriesNumber, is_lock as isLock, created, app_series_number as appSeriesNumber, app_title as appTitle, app_is_lock as appIsLock, port_title as portTitle, port_is_lock as portIsLock from bv_unit where port_title = ? and app_id = ?;
+==> Parameters: Unionpay(String), 1(Integer)
+<==    Columns: id, appId, portId, setting, seriesNumber, isLock, created, appSeriesNumber, appTitle, appIsLock, portTitle, portIsLock
+<==        Row: 6, 1, 4, <<BLOB>>, 160629f8v1un, 0, 2016-10-06 00:00:00.0, 1606298hix25, qqvisa, 0, Unionpay, 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f7f92d]
+2016-10-07 06:36:29.959 ERROR 5890 --- [io-10001-exec-5] c.dos.bsapp.service.pay.UnionpayService  : getUnionpayConfig setting:{}
+2016-10-07 06:36:29.981  INFO 5890 --- [io-10001-exec-5] ACP_SDK_LOG                              : 验签处理开始
+2016-10-07 06:36:29.981  INFO 5890 --- [io-10001-exec-5] ACP_SDK_LOG                              : 对返回报文串验签使用的验签公钥序列号：[68759585097]
+2016-10-07 06:36:29.981  INFO 5890 --- [io-10001-exec-5] ACP_SDK_LOG                              : 待验签返回报文串：[accNo=6216***********0018&accessType=0&bizType=000201&certId=68759585097&currencyCode=156&encoding=UTF-8&merId=777290058138633&orderId=1606298hix25161006b2rx&queryId=201610070635414624978&respCode=00&respMsg=Success!&settleAmt=1&settleCurrencyCode=156&settleDate=1006&signMethod=01&traceNo=462497&traceTime=1007063541&txnAmt=1&txnSubType=01&txnTime=20161007063541&txnType=01&version=5.0.0]
+2016-10-07 06:36:29.983  INFO 5890 --- [io-10001-exec-5] ACP_SDK_LOG                              : 验证签名结果[成功].
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2423cc75] was not registered for synchronization because synchronization is not active
+JDBC Connection [ProxyConnection[PooledConnection[com.mysql.jdbc.JDBC4Connection@4efbe68c]]] will not be managed by Spring
+==>  Preparing: select id, app_id as appId, order_series_number as orderSeriesNumber, created, is_paid as isPaid, paid_port as paidPort, paid_time as paidTime, paid_info as paidInfo, reg_unit as regUnit, total_series_number as totalSeriesNumber, wechat_pay_link as wechatPayLink, order_name as orderName, total_price as totalPrice, show_url as showUrl, over_time as overTime, wechat_prepare_id as wechatPrepareId, wechat_prepare_id_create_time as wechatPrepareIdCreateTime, called_back as calledBack, called_back_time as calledBackTime from bs_app_pay where total_series_number=?;
+==> Parameters: 1606298hix25161006b2rx(String)
+<==    Columns: id, appId, orderSeriesNumber, created, isPaid, paidPort, paidTime, paidInfo, regUnit, totalSeriesNumber, wechatPayLink, orderName, totalPrice, showUrl, overTime, wechatPrepareId, wechatPrepareIdCreateTime, calledBack, calledBackTime
+<==        Row: 49, 1, 161006b2rx, 2016-10-06 04:55:53.0, 0, , null, <<BLOB>>, 6, 1606298hix25161006b2rx, null, null, 1, null, null, null, null, 0, null
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2423cc75]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c5dc4ec] was not registered for synchronization because synchronization is not active
+JDBC Connection [ProxyConnection[PooledConnection[com.mysql.jdbc.JDBC4Connection@4efbe68c]]] will not be managed by Spring
+==>  Preparing: select id, app_id as appId, port_id as portId, setting, series_number as seriesNumber, is_lock as isLock, created, app_series_number as appSeriesNumber, app_title as appTitle, app_is_lock as appIsLock, port_title as portTitle, port_is_lock as portIsLock from bv_unit where port_title = ? and app_id = ?;
+==> Parameters: Unionpay(String), 1(Integer)
+<==    Columns: id, appId, portId, setting, seriesNumber, isLock, created, appSeriesNumber, appTitle, appIsLock, portTitle, portIsLock
+<==        Row: 6, 1, 4, <<BLOB>>, 160629f8v1un, 0, 2016-10-06 00:00:00.0, 1606298hix25, qqvisa, 0, Unionpay, 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c5dc4ec]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@708d36d0] was not registered for synchronization because synchronization is not active
+JDBC Connection [ProxyConnection[PooledConnection[com.mysql.jdbc.JDBC4Connection@4efbe68c]]] will not be managed by Spring
+==>  Preparing: update bs_app_pay set is_paid = ?, paid_port=?, paid_time=?, paid_info=? where id = ?
+==> Parameters: 1(Integer), Unionpay(String), 2016-10-07 06:36:29.988(Timestamp), {bizType=000201, orderId=1606298hix25161006b2rx, txnSubType=01, signature=MrFl39aYu0bhoM6rO9zxI0UEEEqreUdlcWiTDU45REdsh3ELvjheeQz+Q9FAWBOj137eplQeqF6AN/Hw+zw03GoOn+WI4m0fB1GgSPipeQU3GCy6NVXxbi9twOdJam6BVF4igWP0aR3+5SAWDXrOQflcQzAm5Zau3WbAgf8B8T8krbcYFMIwR5W/wPHilDh+QNx0oLEQwdF3zy63X9yWbXUAD+C29klNPJ8i51xtmFUqkVI96yOTqobx7YgGdzRucMoXMsMjaY+eutlhVn8M6+Y0EGaTRw+2In3h2umNOw3m2p2+KfQFeJLFwvaUkQBRwlpntW5c3Hen/37hcTpZJQ==, traceNo=462497, accNo=6216***********0018, settleAmt=1, settleCurrencyCode=156, settleDate=1006, txnType=01, certId=68759585097, encoding=UTF-8, version=5.0.0, queryId=201610070635414624978, accessType=0, respMsg=Success!, traceTime=1007063541, txnTime=20161007063541, merId=777290058138633, currencyCode=156, respCode=00, signMethod=01, txnAmt=1}(String), 49(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@708d36d0]
+2016-10-07 06:36:30.005 ERROR 5890 --- [io-10001-exec-5] c.dos.bsapp.service.pay.UnionpayService  : getUnionpayConfig setting:{}
+2016-10-07 06:36:30.009 ERROR 5890 --- [io-10001-exec-5] c.dos.bsapp.service.pay.UnionpayService  : UnionpayService.notifyCall url:http://beta.www.woigo.cn/qqvisa/api/unionpay/back_recv_url?back_sign=15d9195ced8fa0289c2ef480d13aaafc&order_id=161006b2rx
+2016-10-07 06:36:30.101 ERROR 5890 --- [io-10001-exec-5] c.dos.bsapp.service.pay.UnionpayService  : url inputLine:fail
+2016-10-07 06:36:30.102  INFO 5890 --- [io-10001-exec-5] ACP_SDK_LOG                              : BackRcvResponse接收后台通知结束
+^C2016-10-07 06:38:04.109  INFO 5890 --- [       Thread-4] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68937440: startup date [Fri Oct 07 06:33:05 CST 2016]; root of context hierarchy
+2016-10-07 06:38:04.114  INFO 5890 --- [       Thread-4] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2016-10-07 06:38:04.129  INFO 5890 --- [       Thread-4] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+
+
+
+
+
+
+
+
+todo:
+1.第一笔操作完成，backreturn和frontreturn完成
+2.UnionpayConfi的初始化方法修改为从setting中得到
+3.记录log到数据库
+4.api_server上记录log，考虑传递回去的信息。
+5.考虑添加其他用户的步骤
