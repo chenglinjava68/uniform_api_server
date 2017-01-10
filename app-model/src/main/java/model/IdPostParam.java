@@ -1,13 +1,10 @@
-package util.model;
+package model;
 
 import java.util.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import util.Ret;
 
-public class IdPostParam implements util.model.PVoParamI
+public class IdPostParam implements model.PVoParamI
 {
 		Integer id;
 		

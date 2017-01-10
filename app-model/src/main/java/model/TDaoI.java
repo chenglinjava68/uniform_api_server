@@ -1,4 +1,4 @@
-package util.model;
+package model;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;

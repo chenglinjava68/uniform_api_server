@@ -1,9 +1,9 @@
-package util.model;
+package model;
 
 import java.util.*;
 import util.*;
 
-public abstract class VOI<T,DT,VT,AT> {
+public abstract class FieldI<T,DT,VT,AT> {
     protected Entity    parent = null;
     public Entity getParent() {	return parent;	}	public void setParent(Entity parent) {	this.parent = parent;	}
 	protected T          val    = null;
@@ -11,9 +11,9 @@ public abstract class VOI<T,DT,VT,AT> {
 	public T get() {	return val;	}	            public void set(T v) {	setVal(v);	} public void edit(T v) {	setVal(v);	updateFlag = true; }
     protected boolean    updateFlag = false;
     public boolean isUpdated() { return updateFlag;}
-    public VOI<T,DT,VT> updateInit() { this.updateFlag = false; return this; }
+    public FieldI<T,DT,VT,AT> updateInit() { this.updateFlag = false; return this; }
     public void setUpdateFlag(boolean val) { updateFlag = val; }
-    public VOI(String name, String key){
+    public FieldI(String name, String key){
         this.name = name;
         this.key = key;
     }

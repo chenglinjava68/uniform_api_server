@@ -1,19 +1,19 @@
-package util.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import util.model.vos.*;
+import model.field.*;
 
 import util.Ret;
 
 public abstract class Entity<Po> {
 	@SuppressWarnings("rawtypes")
-	protected List<VOI> vos = new ArrayList<VOI>();
+	protected List<FieldI> vos = new ArrayList<FieldI>();
 	
-	private PureIntegerVP id = new PureIntegerVP(this,"ID","id");
-	public  PureIntegerVP getId(){ return id; }
-	public void setId(PureIntegerVP id) { this.id = id; }
+	private RawIntegerF id = new RawIntegerF(this,"ID","id");
+	public  RawIntegerF getId(){ return id; }
+	public void setId(RawIntegerF id) { this.id = id; }
 	public Entity(){
 		vos.add(id);
 		this.extraInit();
@@ -30,9 +30,9 @@ public abstract class Entity<Po> {
 		
 	    this.vos.forEach(vo->{
 	    	Object ov = p.key(vo.getKey());
-	    	vo.fromDT(ov);
+	    	vo.fromDb(ov);
 	    });
-	    for(VOI tvo: vos){
+	    for(FieldI tvo: vos){
 	    	Ret r = tvo.check("common");
 	    	if(r.isFalse()) return r;
 	    }
@@ -42,9 +42,9 @@ public abstract class Entity<Po> {
 	public Ret fromUserMemo(PParamI p){
 		this.vos.forEach(vo->{
 	    	Object ov = p.key(vo.getKey());
-	    	vo.fromVT(ov);
+	    	vo.fromUser(ov);
 	    });
-	    for(VOI tvo: vos){
+	    for(FieldI tvo: vos){
 	    	Ret r = tvo.check("common");
 	    	if(r.isFalse()) return r;
 	    }
@@ -54,9 +54,9 @@ public abstract class Entity<Po> {
 	public Ret fromAdminMemo(PParamI p){
 		this.vos.forEach(vo->{
 	    	Object ov = p.key(vo.getKey());
-	    	vo.fromVT(ov);
+	    	vo.fromAdmin(ov);
 	    });
-	    for(VOI tvo: vos){
+	    for(FieldI tvo: vos){
 	    	Ret r = tvo.check("common");
 	    	if(r.isFalse()) return r;
 	    }

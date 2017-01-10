@@ -1,4 +1,4 @@
-package util.model;
+package model;
 
 public interface PParamI {
 	Object key(String key);

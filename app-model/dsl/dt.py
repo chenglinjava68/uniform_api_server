@@ -59,8 +59,8 @@ class field:
     _user_type = "";
     _admin_type = "";
     _includes = [];
-    _package = "util.model.field";
-    _dir = "src/main/java/util/model/field";
+    _package = "model.field";
+    _dir = "src/main/java/model/field";
     _init_params = [];
     _dt_type = "pure"; ##ArrayList,Entity
     def __init__(self,name,t,dt_type="pure"):
@@ -70,8 +70,8 @@ class field:
         self._user_type = self._type;
         self._admin_type = self._type;
         self._includes = [];
-        self._package = "util.model.field";
-        self._dir = "src/main/java/util.model/field";
+        self._package = "model.field";
+        self._dir = "src/main/java/model/field";
         self._init_params = [];
         self._dt_type = dt_type;
     def dt_type(self):
@@ -130,26 +130,29 @@ class field:
     def uniform_name(self):
         return basic_fun.upper_first(self.name());
     def interface_name(self):
-        return self.uniform_name() + "FieldI";
+        return self.uniform_name() + "FI";
     def implement_name(self):
-        return self.uniform_name() + "Field";
+        return self.uniform_name() + "F";
     def create_interface_output(self):
-        template = """
-        package $package;
-        import util.*;
-        import java.util.*;
-        import $package.*;
+        template = """package $package;
 
-        $additionInclude
-
-        public  abstract class $interfaceName extends VOI<$Type,$dbType,$userType,$adminType>{
-            $initParamInit
-            public $interfaceName(TEntity parent, String name, String key$initParamList){
-                super(name,key);
-                $interfaceInit
-                this.parent = parent;  $initParamSet
-            }
+import util.*;
+import model.*;
+import java.util.*;
+import $package.*;
+$additionInclude
+public  abstract class $interfaceName extends FieldI<$Type,$dbType,$userType,$adminType>
+{
+        $initParamInit
+        public $interfaceName(Entity parent, String name, String key$initParamList)
+        {
+            super(name,key);
+            $interfaceInit
+            this.parent = parent;  $initParamSet
         }
+
+
+}
         """;
         outStr = template.replace("$interfaceName",self.interface_name());
         if self._dt_type == "pure":
@@ -188,52 +191,63 @@ class field:
         outStr = outStr.replace("$package", self.package());
         return outStr;
     def create_implement_output(self):
-        template = """
-        package $package;
-        import java.util.*;
-        import util.*;
-        import util.model.*;
+        template = """package $package;
 
-        $additionInclude
-
-        public  class $implementName extends $interfaceName{
-            public $implementName(Entity parent,String sname,String skey  $initParamList){
-                super(parent,sname,skey $initParamLis2);
-            }
-
-            @Override
-        	public void fromDb($dbType v) {
-        	    $fromDbVal
-        	}
-
-        	@Override
-        	public void fromUser($userType v) {
-        		$fromUserVal
-        	}
-
-        	@Override
-        	public void fromAdmin($adminType v) {
-        		$fromAdminVal
-        	}
-
-        	@Override
-        	public $dbType toDb() {
-        		$toDbVal
-        	}
-
-        	@Override
-        	public $userType toUser() {
-        		$toUserVal
-        	}
-
-        	@Override
-        	public $adminType toAdmin() {
-        		$toAdminVal
-        	}
+import java.util.*;
+import util.*;
+import model.*;
+$additionInclude
+public  class $implementName extends $interfaceName
+{
+        public $implementName(Entity parent,String sname,String skey  $initParamList)
+        {
+            super(parent,sname,skey $initParamLis2);
         }
+
+        @Override
+        public void fromDb($dbType v)
+        {
+            $fromDbVal
+        }
+
+        @Override
+        public void fromUser($userType v)
+        {
+            $fromUserVal
+        }
+
+        @Override
+        public void fromAdmin($adminType v)
+        {
+            $fromAdminVal
+        }
+
+        @Override
+        public $dbType toDb()
+        {
+            $toDbVal
+        }
+
+        @Override
+        public $userType toUser()
+        {
+            $toUserVal
+        }
+
+        @Override
+        public $adminType toAdmin()
+        {
+            $toAdminVal
+        }
+         public util.Ret check(String mode)
+         {
+            return extraCheck(mode);
+         }
+	    public  Ret extraCheck(String mode){ return Ret.ok(""); }
+}
         """;
         outStr = template.replace("$interfaceName", self.interface_name());
-        outStr = template.replace("$implementName", self.implement_name());
+        outStr = outStr.replace("$implementName", self.implement_name());
 
         additionInclude = "";
         for ui in self._includes:
@@ -292,7 +306,7 @@ class field:
         # toDbVal
         toDbVal = "";
         if self._dt_type == "pure":
-            toDbVal = "return this.val.toDbMemo();";
+            toDbVal = "return this.val;";
         else:
             if self._dt_type == "Entity":
                 toDbVal = "return this.val.toDbMemo();";
@@ -337,11 +351,43 @@ class field:
         outStr = outStr.replace("$toAdminVal", toAdminVal);
         return outStr;
 
-fd = field("RawInteger","Integer").for_db("Integer").for_user("Integer");
-print(fd.create_interface_output());
 
-print("Implement File");
-print(fd.create_implement_output());
+
+def outputToFieldDir(ffdds):
+    for ufd in ffdds:
+        fobj = None;
+        wpath = system.path.join("../src/main/java/model/field",ufd.interface_name() + ".java");
+        try:
+            fobj = open(wpath , 'w');
+        except:
+            print('open file error W:\n' + wpath + "");
+        else:
+            fobj.write(ufd.create_interface_output());
+            fobj.close();
+        wpath = system.path.join("../src/main/java/model/field", ufd.implement_name() + ".java");
+        if not system.path.exists(wpath):
+            try:
+                fobj = open(wpath , 'w');
+            except:
+                print('open file error W:\n' + wpath + "");
+            else:
+                fobj.write(ufd.create_implement_output());
+                fobj.close();
+
+
+
+
+##Data Define
+outputToFieldDir([
+field("RawInteger","Integer").for_db("Integer").for_user("Integer"),
+field("RawDouble","Double").for_db("Double").for_user("Double"),
+field("RawString","String").for_db("String").for_user("String"),
+field("RawText","String").for_db("String").for_user("String"),
+field("MultiString","ArrayList<String>").for_db("String").for_user("ArrayList<String>"),
+field("RawBoolean","Boolean").for_db("Integer").for_user("Boolean"),
+field("PureDate","Date").for_db("Date").for_user("String"),
+field("PureDate2","Date").for_db("String").for_user("String")
+]);
 
 
 

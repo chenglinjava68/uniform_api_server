@@ -61,13 +61,12 @@
             <groupId>com.dos</groupId>
             <version>1.0</version>
         </dependency>
-        <!--
         <dependency>
             <artifactId>app-model</artifactId>
             <groupId>com.dos</groupId>
             <version>1.0</version>
         </dependency>
-        -->
+
 
          <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
 
