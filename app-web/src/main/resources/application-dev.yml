@@ -11,7 +11,7 @@ logging:
 spring:
     datasource:
         name: debugtest 
-        url: jdbc:mysql://127.0.0.1:3306/s_app_db_debug
-        username: sappuserdebug 
-        password: kxicjn45debug
+        url: jdbc:mysql://127.0.0.1:3306/uniform_api_db_dev
+        username: devuser
+        password: devuser
         driver-class-name: com.mysql.jdbc.Driver

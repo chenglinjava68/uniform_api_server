@@ -1,6 +1,0 @@
-
-INSERT INTO `s_app_db_debug`.`bs_port` (`id`, `title`, `setting`, `is_lock`, `created`) VALUES ('4', 'Unionpay', '{}', '0', '2016-06-29 17:37:36');
-
-
-INSERT INTO `s_app_db_debug`.`bs_unit` (`app_id`, `port_id`, `series_number`, `setting`, `is_lock`, `created`) VALUES ('1', '4', '160629f8v1un', '{}', '0', '2016-06-29 17:43:41');
-

@@ -4,15 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dos</groupId>
-    <artifactId>bsapp</artifactId>
-    <version>1.0</version>
+    <artifactId>bsapp-web</artifactId>
     <packaging>${packaging.type}</packaging>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.5.RELEASE</version>
+        <artifactId>bsapp</artifactId>
+        <groupId>com.dos</groupId>
+        <version>1.0</version>
     </parent>
 
     <properties>
@@ -58,6 +56,17 @@
     </profiles>
 
     <dependencies>
+        <dependency>
+            <artifactId>app-util</artifactId>
+            <groupId>com.dos</groupId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <artifactId>app-model</artifactId>
+            <groupId>com.dos</groupId>
+            <version>1.0</version>
+        </dependency>
+
    	 <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
 	<dependency>
 	    <groupId>commons-lang</groupId>
