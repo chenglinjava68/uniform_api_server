@@ -6,10 +6,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-//import com.intelgoo.qqvisa.po.$missing$;
 
 
 /**
@@ -21,8 +17,6 @@ import org.apache.commons.logging.LogFactory;
  *  @author 李嘉琳
  */
 public class DateUtil {
-	private static final Log log = LogFactory.getLog(DateUtil.class);
-    
 
 	public static String createWifipOrderSeriesNumber(){
 		String sOut = DateToString(new Date(),"yyMMdd");
@@ -32,7 +26,6 @@ public class DateUtil {
 			String sVal = sSeeds.substring(sIndex,sIndex+1);
 			sOut = sOut + sVal;
 		}
-	    //System.out.println("order series_number:"+sOut);
 		return  sOut;
 	}
 
@@ -98,8 +91,8 @@ public class DateUtil {
             try {  
             	SimpleDateFormat sdf = new SimpleDateFormat(pattern);
             	dateString = sdf.format(date); 
-            } catch (Exception e) {  
-            	log.error(date.toString()+"：日期转化错误");
+            } catch (Exception e) {
+            	System.out.println(date.toString()+"：日期转化错误");
             }  
         }  
         return dateString;  
@@ -117,8 +110,8 @@ public class DateUtil {
             try {  
             	SimpleDateFormat sdf = new SimpleDateFormat(pattern);
             	myDate = sdf.parse(date);
-            } catch (Exception e) {  
-            	log.error(date+"：日期转化错误");
+            } catch (Exception e) {
+            	System.out.println(date.toString()+"：日期转化错误");
             }  
         }  
         return myDate;  

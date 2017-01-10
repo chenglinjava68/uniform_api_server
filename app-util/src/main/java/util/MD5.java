@@ -1,15 +1,9 @@
 package util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 /*****************************************************************************************
  * md5 类实现了RSA Data Security, Inc.在提交给IETF 的RFC1321中的MD5 message-digest 算法。
  ****************************************************************************************/
 public class MD5 {
-	
-	private static final Log log = LogFactory.getLog(MD5.class);
-	
 	/*
 	 * 下面这些S11-S44实际上是一个4*4的矩阵，在原始的C实现中是用#define 实现的， 这里把它们实现成为static
 	 * final是表示了只读，切能在同一个进程空间内的多个 Instance间共享

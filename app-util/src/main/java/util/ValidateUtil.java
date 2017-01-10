@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.intelgoo.qqvisa.exception.PostParamException;
+import exception.PostParamException;
 
 public class ValidateUtil {	
 	public static boolean checkEnglishCharactor(String val){
