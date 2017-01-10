@@ -28,16 +28,16 @@ public class Ret
         r.data = null;
         return r;
     }
-    public boolean isOk(){
+    public boolean cOk(){
     	return code;
     }
-    public boolean isFalse(){
+    public boolean cFalse(){
     	return !code;
     }
     public boolean check() throws Exception{
-    	if(isFalse())
+    	if(cFalse())
     		throw new Exception(getMessage());
-    	return isOk();
+    	return cOk();
     }
 	public boolean isCode() {
 		return code;

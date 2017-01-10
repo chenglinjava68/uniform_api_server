@@ -3,3 +3,5 @@ debug: true
 spring:
     profiles:
         active: @project.profile@
+
+info.app.name: "pspsapp"

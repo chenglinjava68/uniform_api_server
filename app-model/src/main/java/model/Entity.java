@@ -34,7 +34,7 @@ public abstract class Entity<Po> {
 	    });
 	    for(FieldI tvo: vos){
 	    	Ret r = tvo.check("common");
-	    	if(r.isFalse()) return r;
+	    	if(r.cFalse()) return r;
 	    }
 	    return Ret.ok("");
 	}
@@ -46,7 +46,7 @@ public abstract class Entity<Po> {
 	    });
 	    for(FieldI tvo: vos){
 	    	Ret r = tvo.check("common");
-	    	if(r.isFalse()) return r;
+	    	if(r.cFalse()) return r;
 	    }
 	    return Ret.ok("");
 	}
@@ -58,7 +58,7 @@ public abstract class Entity<Po> {
 	    });
 	    for(FieldI tvo: vos){
 	    	Ret r = tvo.check("common");
-	    	if(r.isFalse()) return r;
+	    	if(r.cFalse()) return r;
 	    }
 	    return Ret.ok("");
 	}
