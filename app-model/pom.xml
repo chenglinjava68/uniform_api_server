@@ -22,7 +22,9 @@
             <groupId>org.apache.ibatis</groupId>
             <artifactId>ibatis-core</artifactId>
             <version>3.0</version>
+            <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import util.MediaTypes;
 
+import util.*;
+
 @RestController
 @EnableAutoConfiguration
 public class AAppController
@@ -23,14 +25,14 @@ public class AAppController
 
 
     @RequestMapping(value = {"api/web/test"},method={RequestMethod.GET},produces=MediaTypes.JSON_UTF_8,consumes=MediaTypes.JSON)
-    public Integer test(){
+    public Object test(){
         try
         {
-            return 12;
+            return Ret.ok("ok");
         }
         catch(Exception e)
         {
-            return 69;
+            return Ret.no("no");
         }
     }
 
