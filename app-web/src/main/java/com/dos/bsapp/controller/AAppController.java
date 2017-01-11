@@ -21,7 +21,7 @@ import util.*;
 @EnableAutoConfiguration
 public class AAppController
 {
-    private Logger logger = LoggerFactory.getLogger(AAppController.class);;
+    private Logger logger = LoggerFactory.getLogger(AAppController.class);
 
 
     @RequestMapping(value = {"api/web/test"},method={RequestMethod.GET},produces=MediaTypes.JSON_UTF_8,consumes=MediaTypes.JSON)

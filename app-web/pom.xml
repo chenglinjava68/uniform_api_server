@@ -134,6 +134,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <fork>true</fork>
                     <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>

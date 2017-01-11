@@ -5,3 +5,4 @@ spring:
         active: @project.profile@
 
 info.app.name: "pspsapp"
+
