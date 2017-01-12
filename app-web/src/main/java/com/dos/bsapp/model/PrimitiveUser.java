@@ -1,5 +1,6 @@
 package com.dos.bsapp.model;
 
+import java.util.*;
 
 public class PrimitiveUser
 {
