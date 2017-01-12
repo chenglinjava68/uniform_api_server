@@ -1,4 +1,4 @@
-package com.intelgoo.qqvisa.plugin.shiro;
+package com.dos.bsapp.shiro;
 
 public class UserTypeNamePasswordToken extends org.apache.shiro.authc.UsernamePasswordToken {
 	/**
