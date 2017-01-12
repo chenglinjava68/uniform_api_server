@@ -5,7 +5,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bsapp-web</artifactId>
-    <packaging>${packaging.type}</packaging>
 
     <parent>
         <artifactId>bsapp</artifactId>
