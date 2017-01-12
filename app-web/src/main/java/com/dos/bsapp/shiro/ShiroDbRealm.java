@@ -84,26 +84,25 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@PostConstruct
 	public void initCredentialsMatcher() {
 		//该句作用是重写shiro的密码验证，让shiro用我自己的验证
-    	CustomCredentialsMatcher credentialsMatcher = new CustomCredentialsMatcher(){
-                @Override
-                 public boolean doCredentialsMatch(AuthenticationToken authcToken, AuthenticationInfo info) {
-                        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-                        //将密码加密与系统加密后的密码校验，内容一致就返回true,不一致就返回false
-                        Object tokenCredentials = encrypt(String.valueOf(token.getPassword()));
-                        //System.out.println("password is:"+token.getPassword() + "encrypted is :"+ tokenCredentials);
-                        Object accountCredentials = getCredentials(info);
-                        System.out.println("accountCredentials is:"+accountCredentials);
-                        boolean matches = equals(tokenCredentials, accountCredentials);
-                        return matches;
-                    }
+        setCredentialsMatcher(new org.apache.shiro.authc.credential.CredentialsMatcher(){
+            @Override
+            public boolean doCredentialsMatch(AuthenticationToken authcToken, AuthenticationInfo info) {
+                   UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+                   //将密码加密与系统加密后的密码校验，内容一致就返回true,不一致就返回false
+                   Object tokenCredentials = encrypt(String.valueOf(token.getPassword()));
+                   //System.out.println("password is:"+token.getPassword() + "encrypted is :"+ tokenCredentials);
+                   Object accountCredentials = getCredentials(info);
+                   System.out.println("accountCredentials is:"+accountCredentials);
+                   boolean matches = equals(tokenCredentials, accountCredentials);
+                   return matches;
+               }
 
-                    //将传进来密码加密方法
-                    private String encrypt(String data) {
-                        String md5str = MD5.getMD5ofString(data);//这里可以选择自己的密码验证方式 比如 md5或者sha256等
-                        return md5str;
-                    }
-        };
-        setCredentialsMatcher(credentialsMatcher);
+               //将传进来密码加密方法
+               private String encrypt(String data) {
+                   String md5str = MD5.getMD5ofString(data);//这里可以选择自己的密码验证方式 比如 md5或者sha256等
+                   return md5str;
+               }
+   });
 	}
 
 	/**
