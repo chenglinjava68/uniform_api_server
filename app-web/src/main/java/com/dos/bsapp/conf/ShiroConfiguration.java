@@ -67,4 +67,11 @@ http://412887952-qq-com.iteye.com/blog/2299777
 http://412887952-qq-com.iteye.com/blog/2299780
 http://412887952-qq-com.iteye.com/blog/2299784
 http://412887952-qq-com.iteye.com/blog/2295146
+
+a. Spring-boot connect shiro
+
+b. Spring-boot connect redis
+c. Shiro session and cache -> redis
+http://www.cnblogs.com/jiangkuan/p/6189136.html
+http://www.cnblogs.com/sunshine-2015/p/5686750.html
 */
