@@ -107,6 +107,9 @@ public class UserRealm extends AuthorizingRealm{
        System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
 
        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+
+
+       /*
        UserInfo userInfo  = (UserInfo)principals.getPrimaryPrincipal();
 
        //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
@@ -139,6 +142,7 @@ public class UserRealm extends AuthorizingRealm{
 
        //设置权限信息.
 //     authorizationInfo.setStringPermissions(getStringPermissions(userInfo.getRoleList()));
+        */
 
        return authorizationInfo;
     }
