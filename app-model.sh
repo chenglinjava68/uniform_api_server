@@ -1,1 +1,1 @@
-python3 app-model/dsl/dt.py
+python3 src/main/java/com/dos/model/dsl/dt.py

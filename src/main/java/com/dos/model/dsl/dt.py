@@ -59,8 +59,8 @@ class field:
     _user_type = "";
     _admin_type = "";
     _includes = [];
-    _package = "model.field";
-    _dir = "src/main/java/model/field";
+    _package = "com.dos.model.field";
+    _dir = "field";
     _init_params = [];
     _dt_type = "pure"; ##ArrayList,Entity
     def __init__(self,name,t,dt_type="pure"):
@@ -70,8 +70,8 @@ class field:
         self._user_type = self._type;
         self._admin_type = self._type;
         self._includes = [];
-        self._package = "model.field";
-        self._dir = "src/main/java/model/field";
+        self._package = "com.dos.model.field";
+        self._dir = "field";
         self._init_params = [];
         self._dt_type = dt_type;
     def dt_type(self):
@@ -356,7 +356,7 @@ public  class $implementName extends $interfaceName
 def outputToFieldDir(ffdds):
     for ufd in ffdds:
         fobj = None;
-        wpath = system.path.join("../src/main/java/model/field",ufd.interface_name() + ".java");
+        wpath = system.path.join("../field",ufd.interface_name() + ".java");
         try:
             fobj = open(wpath , 'w');
         except:
@@ -364,7 +364,7 @@ def outputToFieldDir(ffdds):
         else:
             fobj.write(ufd.create_interface_output());
             fobj.close();
-        wpath = system.path.join("../src/main/java/model/field", ufd.implement_name() + ".java");
+        wpath = system.path.join("../field", ufd.implement_name() + ".java");
         if not system.path.exists(wpath):
             try:
                 fobj = open(wpath , 'w');
