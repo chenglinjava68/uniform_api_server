@@ -16,20 +16,21 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import com.dos.bsapp.model.PrimitiveUser;
 
 import util.MD5;
 import java.util.*;
 
-
+@Component
 public class ShiroDbRealm extends AuthorizingRealm {
 
 	private static Logger logger = LoggerFactory.getLogger(ShiroDbRealm.class);
 
-	private ShiroUserService userService;
+	private ShiroUserServiceI userService;
 
-	public ShiroDbRealm setUserService(ShiroUserService val ) {
+	public ShiroDbRealm setUserService(ShiroUserServiceI val ) {
 	    userService = val;
 	    return this;
 	}
@@ -50,10 +51,12 @@ public class ShiroDbRealm extends AuthorizingRealm {
         {
         	//PrimitiveUser userInfo = new PrimitiveUser(); // userInfo = userGetService.getBasicBy(token.getUsername(),token.getPassword(),token.getAddition());
             //ShiroUser su = new ShiroUser(userInfo.getId(),userInfo.getNick(),token.getAddition());
+           throw new AccountException("XXWWWW");
+           /*
             return new SimpleAuthenticationInfo(
                 userService.createShiroUser(username, token.getPassword(),token.getAddition()),
                 token.getPassword(),
-                username);
+                username);*/
         }
         catch(Exception e){
         	throw new AccountException("用户名登录失败");

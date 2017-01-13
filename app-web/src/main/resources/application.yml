@@ -12,4 +12,14 @@ shiro:
     filters:
         /api/web/*: authc
         /mappings: authc,roles[admin]
+        /logout: logout
+    loginUrl: /need_login
+    successUrl: /index
+    unauthorizedUrl: /403
+    userService: com.dos.bsapp.shiro.ShiroUserService
+
+
+
+
+
 
