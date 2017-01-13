@@ -1,0 +1,25 @@
+debug: true
+
+spring:
+    profiles:
+        active: @project.profile@
+
+info.app.name: "pspsapp"
+
+
+
+shiro:
+    filters:
+        /api/web/*: authc
+        /mappings: authc,roles[admin]
+        /logout: logout
+    loginUrl: /need_login
+    successUrl: /index
+    unauthorizedUrl: /403
+    userService: ShiroUserService
+
+
+
+
+
+
