@@ -20,11 +20,20 @@ import org.slf4j.LoggerFactory;
 import com.dos.bsapp.model.PrimitiveUser;
 
 import util.MD5;
+import java.util.*;
 
 
 public class ShiroDbRealm extends AuthorizingRealm {
 
 	private static Logger logger = LoggerFactory.getLogger(ShiroDbRealm.class);
+
+	private ShiroUserService userService;
+
+	public ShiroDbRealm setUserService(ShiroUserService val ) {
+	    userService = val;
+	    return this;
+	}
+
 	/**
 	 * 认证回调函数,登录时调用.
 	 */
@@ -39,15 +48,16 @@ public class ShiroDbRealm extends AuthorizingRealm {
         
         try
         {
-        	PrimitiveUser userInfo = new PrimitiveUser(); // userInfo = userGetService.getBasicBy(token.getUsername(),token.getPassword(),token.getAddition());        
-            ShiroUser su = new ShiroUser(userInfo.getId(),userInfo.getNick(),token.getAddition());      
-            return new SimpleAuthenticationInfo(su,token.getPassword(),username);
+        	//PrimitiveUser userInfo = new PrimitiveUser(); // userInfo = userGetService.getBasicBy(token.getUsername(),token.getPassword(),token.getAddition());
+            //ShiroUser su = new ShiroUser(userInfo.getId(),userInfo.getNick(),token.getAddition());
+            return new SimpleAuthenticationInfo(
+                userService.createShiroUser(username, token.getPassword(),token.getAddition()),
+                token.getPassword(),
+                username);
         }
         catch(Exception e){
         	throw new AccountException("用户名登录失败");
         }
-        
-        
 	}
 
 	/**
@@ -56,10 +66,14 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
-		PrimitiveUser userInfo = new PrimitiveUser(); // userInfo = userGetService.getBasicBy(token.getUsername(),token.getPassword(),token.getAddition());   
+		java.util.Map<String,List<String>> collect = userService.collectRolePermission(shiroUser);
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-		info.addRole("admin");
-		info.addStringPermission("user:delete");
+		for(String role : collect.get("role")){
+		    info.addRole(role);
+		}
+		for(String permission : collect.get("permission")){
+		    info.addStringPermission(permission);
+		}
 		return info;
 	}
 

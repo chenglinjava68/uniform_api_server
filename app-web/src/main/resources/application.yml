@@ -6,3 +6,10 @@ spring:
 
 info.app.name: "pspsapp"
 
+
+
+shiro:
+    filters:
+        /api/web/*: authc
+        /mappings: authc,roles[admin]
+

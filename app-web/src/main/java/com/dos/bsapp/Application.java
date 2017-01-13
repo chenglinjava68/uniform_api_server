@@ -2,7 +2,11 @@ package com.dos.bsapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+//import com.dos.bsapp.conf.ShiroFilterProperties;
+
+//@EnableConfigurationProperties({ShiroFilterProperties.class})
 @SpringBootApplication
 public class Application {
 

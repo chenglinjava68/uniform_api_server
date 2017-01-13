@@ -36,5 +36,11 @@ public class AAppController
         }
     }
 
+    @RequestMapping(value = {"need_login"},method={RequestMethod.GET,RequestMethod.POST})
+    public Object nnedLogin(){
+        return Ret.auth("您当前没有登录");
+    }
+
+
 
 }
